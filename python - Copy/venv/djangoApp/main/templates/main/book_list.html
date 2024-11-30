@@ -1,0 +1,12 @@
+<h1>My Favorite Books</h1>
+<a href="{% url 'add_book' %}">Add New Book</a>
+<ul>
+  {% for book in books %}
+    <li>
+      <strong>{{ book.title }}</strong> by {{ book.author }}
+      <a href="{% url 'toggle_favorite' book.id %}">
+        {% if book.is_favorite %}❤️{% else %}🤍{% endif %}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
